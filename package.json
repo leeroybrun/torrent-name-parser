@@ -1,6 +1,6 @@
 {
   "name": "torrent-name-parse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Leeroy Brun <leeroy.brun@gmail.com>",
   "description": "Parse a torrent name to get accurate informations about quality, TV Show, etc.",
   "repository": {
