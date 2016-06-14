@@ -101,7 +101,8 @@ class TorrentNameParser {
 
     var match = XRegExp.exec(name, Regex.language);
 
-    if(match === null) return Language.Unknown;
+    if(match === null) return Language.English;
+    if (match.vo) return Language.Original;
     if (match.italian) return Language.Italian;
     if (match.german) return Language.German;
     if (match.flemish) return Language.Flemish;

@@ -205,7 +205,7 @@ const testCases = [
   }
 ];
 
-describe('TorrentNameParser', () => {
+describe('Parse torrent quality from name', () => {
   const parser = new TorrentNameParser();
 
   testCases.forEach((testCase) => {
@@ -213,8 +213,8 @@ describe('TorrentNameParser', () => {
       const torrentName = torrent[0];
       const torrentProper = torrent[1];
 
-      const testName = '"' + torrentName + '"';
       const parsedTorrent = parser.parse(torrentName);
+      const testName = '"' + torrentName + '" = '+ testCase.quality;
 
       it(testName, () => {
         expect(parsedTorrent.quality).to.equal(testCase.quality);
@@ -225,108 +225,3 @@ describe('TorrentNameParser', () => {
     });
   });
 });
-
-/*const torrents = [
-  {
-    name: 'The Walking Dead S05E03 720p HDTV x264-ASAP[ettv]',
-    resolution: '720p',
-    quality: 'HDTV-720p'
-  },
-  {
-    name: 'Hercules (2014) 1080p BrRip H264 - YIFY',
-    quality: 'HDTV-1080p',
-    resolution: '1080p'
-  },
-  {
-    name: 'The Big Bang Theory S08E06 HDTV XviD-LOL [eztv]',
-    quality: 'SD'
-  },
-  {
-    name: '22 Jump Street (2014) 720p BrRip x264 - YIFY',
-    quality: 'Bluray-720p',
-    resolution: '720p'
-  },
-  {
-    name: 'Hercules.2014.EXTENDED.1080p.WEB-DL.DD5.1.H264-RARBG',
-    quality: 'WEBDL-1080p',
-    resolution: '1080p'
-  },
-  {
-    name: 'Hercules (2014) WEBDL DVDRip XviD-MAX',
-    quality: 'WEBDL-480p'
-  },
-  {
-    name: 'WWE Hell in a Cell 2014 PPV WEB-DL x264-WD -={SPARROW}=-',
-    quality: 'WEBDL-480p'
-  },
-  {
-    name: 'Interstellar (2014) CAM ENG x264 AAC-CPG',
-    quality: 'SDTV'
-  },
-  {
-    name: 'Guardians of the Galaxy (2014) Dual Audio DVDRip AVI',
-    quality: 'DVD'
-  },
-  {
-    name: 'Eliza Graves (2014) Dual Audio WEB-DL 720p MKV x264',
-    quality: 'WEBDL-720p',
-    resolution: '720p'
-  },
-  {
-    name: 'WWE Monday Night Raw 2014 11 10 WS PDTV x264-RKOFAN1990 -={SPARR',
-    quality: 'SDTV'
-  },
-  {
-    name: 'doctor_who_2005.8x12.death_in_heaven.720p_hdtv_x264-fov',
-    quality: 'HDTV-720p',
-    resolution: '720p'
-  },
-  {
-    name: 'breaking.bad.s01e01.720p.bluray.x264-reward',
-    quality: 'Bluray-720p',
-    resolution: '720p'
-  },
-  {
-    name: 'Game of Thrones - 4x03 - Breaker of Chains',
-    resolution: null,
-    quality: null
-  },
-  {
-    name: '[720pMkv.Com]_sons.of.anarchy.s05e10.480p.BluRay.x264-GAnGSteR',
-    resolution: '480p',
-    quality: 'Bluray-480p'
-  },
-  {
-    name: '[ www.Speed.cd ] -Sons.of.Anarchy.S07E07.720p.HDTV.X264-DIMENSION',
-    resolution: '720p',
-    quality: 'HDTV-720p'
-  },
-  {
-    name: 'Community.s02e20.rus.eng.720p.Kybik.v.Kybe',
-    resolution: '720p',
-    language: 'English'
-  }
-];
-
-describe('TorrentNameParser', () => {
-  const parser = new TorrentNameParser();
-
-  torrents.forEach((torrent) => {
-    const testName = '"' + torrent.name + '"';
-    const parsedTorrent = parser.parse(torrent.name);
-
-    it(testName, () => {
-      for(let key in torrent) {
-        if(torrent.hasOwnProperty(key)) {
-          if(key === 'name') {
-            continue;
-          }
-
-          let testMessage = key + ': ' + JSON.stringify(torrent[key]);
-
-          expect(torrent[key], testMessage).to.equal(parsedTorrent[key]);
-        }
-      }
-    });
-  });
-});*/

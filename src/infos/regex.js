@@ -28,10 +28,11 @@ module.exports = {
   highDefPdtv: XRegExp(String.raw`hr[-_. ]ws`, 'gi'),
   language: XRegExp(String.raw`(?:\W|_)
     (?<italian>\b(?:ita|italian)\b)|
+    (?<vo>(?:\W|_)(?:VOST[A-Z]{0,2})(?:\W|_))|
     (?<german>german\b|videomann)|
     (?<flemish>flemish)|
     (?<greek>greek)|
-    (?<french>(?:\W|_)(?:FR|VOSTFR)(?:\W|_))|
+    (?<french>(?:\W|_)(?:FR)(?:\W|_))|
     (?<russian>\brus\b)|
     (?<dutch>nl\W?subs?)|
     (?<hungarian>\b(?:HUNDUB|HUN)

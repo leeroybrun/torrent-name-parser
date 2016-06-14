@@ -1,5 +1,6 @@
 module.exports = {
   Unknown: null,
+  Original: 'Original',
   English: 'English',
   French: 'French',
   Spanish: 'Spanish',
