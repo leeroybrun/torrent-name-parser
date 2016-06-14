@@ -35,7 +35,8 @@
     "build": "npm run jshint && babel src --presets babel-preset-es2015 --out-dir dist",
     "prepublish": "npm run build",
     "mocha": "mocha test/ --compilers js:babel-core/register",
-    "test": "npm run jshint && npm run mocha"
+    "test": "npm run jshint && npm run mocha",
+    "testfile": "npm run build && DEBUG=torrents-name-parser* node test.js"
   },
   "xo": {
     "esnext": true,

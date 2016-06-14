@@ -42,7 +42,6 @@ const testCases = [
       ['The.Shield.S01E13.NTSC.x264-CtrlSD', false],
       ['WEEDS.S03E01-06.DUAL.BDRip.XviD.AC3.-HELLYWOOD', false],
       ['WEEDS.S03E01-06.DUAL.BDRip.X-viD.AC3.-HELLYWOOD', false],
-      ['WEEDS.S03E01-06.DUAL.BDRip.AC3.-HELLYWOOD', false],
       ['WEEDS.S03E01-06.DUAL.BDRip.XviD.AC3.-HELLYWOOD.avi', false],
       ['WEEDS.S03E01-06.DUAL.XviD.Bluray.AC3.-HELLYWOOD.avi', false],
       ['The.Girls.Next.Door.S03E06.DVDRip.XviD-WiDE', false],
@@ -53,7 +52,8 @@ const testCases = [
       ['Hannibal.S01E05.576p.BluRay.DD5.1.x264-HiSD', false],
       ['Hannibal.S01E05.480p.BluRay.DD5.1.x264-HiSD', false],
       ['Heidi Girl of the Alps (BD)(640x480(RAW) (BATCH 1) (1-13)', false],
-      ['[Doki] Clannad - 02 (848x480 XviD BD MP3) [95360783]', false]
+      ['[Doki] Clannad - 02 (848x480 XviD BD MP3) [95360783]', false],
+      ['WEEDS.S03E01-06.DUAL.BDRip.AC3.-HELLYWOOD', false]
     ]
   },
   {
@@ -163,7 +163,7 @@ const testCases = [
       ['WEEDS.S03E01-06.DUAL.720p.Blu-ray.AC3.-HELLYWOOD.avi', false],
       ['[Elysium]Lucky.Star.01(BD.720p.AAC.DA)[0BB96AD8].mkv', false],
       ['Battlestar.Galactica.S01E01.33.720p.HDDVD.x264-SiNNERS.mkv', false],
-      ['The.Expanse.S01E07.RERIP.720p.BluRay.x264-DEMAND', true],
+      ['The.Expanse.S01E07.RERIP.720p.BluRay.x264-DEMAND', true]
     ]
   },
   {
