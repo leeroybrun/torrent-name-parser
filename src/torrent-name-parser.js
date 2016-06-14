@@ -109,6 +109,8 @@ class TorrentNameParser {
       // Continue with this :
       // https://github.com/Sonarr/Sonarr/blob/develop/src/NzbDrone.Core/Parser/Parser.cs
       // https://github.com/Sonarr/Sonarr/blob/develop/src/NzbDrone.Core/Parser/ParsingService.cs
+      //
+      // And this : https://github.com/clems6ever/torrent-name-parser/blob/master/parts/common.js
     };
 
 
