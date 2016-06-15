@@ -36,5 +36,10 @@ module.exports = {
     (?<russian>\brus\b)|
     (?<dutch>nl\W?subs?)|
     (?<hungarian>\b(?:HUNDUB|HUN)
-  \b)`, 'gix')
+  \b)`, 'gix'),
+  website: XRegExp(String.raw`^(?:\[ ?(?<website>[^\]]+?) ?\])`, 'gi'),
+  year: XRegExp(String.raw`\b(?<year>(?:19[0-9]|20[012])[0-9])\b`, 'gi'),
+  tvshow: [
+    XRegExp(String.raw`\b(?:[Ss]?(?<season>[0-9]{1,2}))[Eex](?<episode>[0-9]{2})\b`, 'gi')
+  ]
 };

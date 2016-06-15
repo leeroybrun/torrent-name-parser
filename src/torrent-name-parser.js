@@ -24,18 +24,69 @@ class TorrentNameParser {
     const infos = {
       resolution: this.parseResolution(normalizedName),
       revision: this.parseRevision(normalizedName),
-      language: this.parseLanguage(name)
+      language: this.parseLanguage(name),
+      year: this.parseYear(name),
       // Continue with this :
       // https://github.com/Sonarr/Sonarr/blob/develop/src/NzbDrone.Core/Parser/Parser.cs
-      // https://github.com/Sonarr/Sonarr/blob/develop/src/NzbDrone.Core/Parser/ParsingService.cs
+      // https://github.com/clems6ever/torrent-name-parser/blob/master/parts/common.js
       //
-      // And this : https://github.com/clems6ever/torrent-name-parser/blob/master/parts/common.js
+      // Try to detect :
+      //   - Release group
+      //   - Subtitles
+      //   - Website? Already implemented, just check if accurate
     };
-
 
     infos.quality = this.parseQuality(name, normalizedName, infos.resolution).name;
 
+    const website = this.parseWebsite(name);
+    if(website !== null) {
+      infos.website = website;
+    }
+
+    // TODO: better handling of TV show format
+    //       Season xx, Sxx, multiple episodes, etc
+    //       See https://github.com/Sonarr/Sonarr/blob/develop/src/NzbDrone.Core/Parser/Parser.cs#L26
+    const tvShow = this.parseTvShow(name);
+    if(tvShow.season !== null && tvShow.episode !== null) {
+      infos.tvshow = tvShow;
+    }
+
     return infos;
+  }
+
+  parseWebsite(name) {
+    /*jshint curly: false */
+    var match = XRegExp.exec(name, Regex.website);
+
+    if(match === null) return null;
+    if (match.website) return match.website;
+  }
+
+  parseYear(name) {
+    /*jshint curly: false */
+    var match = XRegExp.exec(name, Regex.year);
+
+    if(match === null) return null;
+    if (match.year) return parseInt(match.year);
+  }
+
+  parseTvShow(name) {
+    /*jshint curly: false */
+    let season = null;
+    let episode = null;
+
+    Regex.tvshow.forEach((regex) => {
+      var match = XRegExp.exec(name, regex);
+
+      if (match === null) return null;
+      if (match.season) season = parseInt(match.season);
+      if (match.episode) episode = parseInt(match.episode);
+    });
+
+    return {
+      season: season,
+      episode: episode
+    };
   }
 
   parseLanguage(name) {

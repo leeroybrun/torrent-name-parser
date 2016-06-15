@@ -52,13 +52,13 @@ describe('Parse torrent language from name', () => {
 
   testCases.forEach((testCase) => {
     const torrentName = testCase[0];
-    const torrentLang = testCase[1];
+    const expectedLang = testCase[1];
 
-    const testName = '"' + torrentName + '" = '+ torrentLang;
+    const testName = `"${torrentName}" = ${expectedLang}`;
     const parsedTorrent = parser.parse(torrentName);
 
     it(testName, () => {
-      expect(parsedTorrent.language).to.equal(torrentLang);
+      expect(parsedTorrent.language).to.equal(expectedLang);
     });
   });
 });

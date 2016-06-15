@@ -211,16 +211,16 @@ describe('Parse torrent quality from name', () => {
   testCases.forEach((testCase) => {
     testCase.torrents.forEach((torrent) => {
       const torrentName = torrent[0];
-      const torrentProper = torrent[1];
+      const expectedProper = torrent[1];
 
       const parsedTorrent = parser.parse(torrentName);
-      const testName = '"' + torrentName + '" = '+ testCase.quality;
+      const testName = `"${torrentName}" = ${testCase.quality}`;
 
       it(testName, () => {
         expect(parsedTorrent.quality).to.equal(testCase.quality);
 
-        const version = torrentProper ? 2 : 1;
-        expect(parsedTorrent.revision.version).to.equal(version);
+        const expectedVersion = expectedProper ? 2 : 1;
+        expect(parsedTorrent.revision.version).to.equal(expectedVersion);
       });
     });
   });
